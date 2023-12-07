@@ -24,3 +24,20 @@ body {
   background-color: white;
   padding: $lg;
 }
+
+.card {
+  font-weight: 600;
+  background-color: $gray;
+  border-radius: 4px;
+  text-transform: capitalize;
+  padding: $sm;
+  min-width: 48px;
+  text-align: center;
+  cursor: pointer;
+
+  &.active {
+    background-color: $light-gray;
+    color: $secondary-color;
+    border: 1px solid $secondary-color;
+  }
+}
