@@ -79,3 +79,12 @@ body {
   color: $primary-color;
   cursor: pointer;
 }
+
+// Public MUI overrides
+.MuiButton-root.button-primary {
+  background-color: $primary-color;
+}
+
+.select.MuiSelect-select {
+  min-width: 200px;
+}

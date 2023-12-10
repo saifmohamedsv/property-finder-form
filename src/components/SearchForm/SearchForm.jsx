@@ -43,7 +43,7 @@ const SearchForm = () => {
   };
 
   return (
-    <Box className="searchform">
+    <Box className="search-form">
       <TabBar value={tabValue} onChange={handleTabValueChange} />
 
       <Box className="row">
@@ -55,7 +55,7 @@ const SearchForm = () => {
 
         <PricePopper />
 
-        <Button className="searchform__submit">
+        <Button className="button-primary">
           <SearchOutlined sx={{ color: "#fff" }} />
         </Button>
       </Box>
@@ -85,7 +85,7 @@ const SearchForm = () => {
 
 const TabBar = ({ value, onChange }) => {
   return (
-    <Box className="tabs">
+    <Box className="search-form__tabs">
       <Tabs value={value} onChange={onChange}>
         <Tab value={"rent"} className="tab" label="Rent" />
         <Tab value={"buy"} className="tab" label="Buy" />

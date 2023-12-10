@@ -1,6 +1,6 @@
 @import "../variables.scss";
 
-.searchform {
+.search-form {
   max-width: 1280px;
   padding: $lg;
   border-radius: $sm;
@@ -12,7 +12,7 @@
   box-shadow: 0px 4px 12px rgba($color: #000000, $alpha: 0.2);
 
   // Override MUI Tabs component styles
-  .tabs {
+  &__tabs {
     .MuiTabs-indicator {
       display: none;
     }
@@ -35,16 +35,8 @@
     flex: 1;
   }
 
-  .select.MuiSelect-select {
-    min-width: 200px;
-  }
-
   .select-placeholder {
     color: #aaaaaa;
-  }
-
-  .searchform__submit {
-    background-color: $primary-color;
   }
 
   .more-options-button {
