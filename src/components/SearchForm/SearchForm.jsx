@@ -47,7 +47,7 @@ const SearchForm = () => {
       <TabBar value={tabValue} onChange={handleTabValueChange} />
 
       <Box className="filter-container">
-        <Box display={"flex"} alignItems={"stret"} gap={2}>
+        <Box className="row">
           <SearchTextField />
 
           <PropertyTypeSelect />
@@ -62,30 +62,21 @@ const SearchForm = () => {
         </Box>
 
         {moreOptions && (
-          <Box mt={4} display={"flex"} alignItems={"stretch"} gap={2}>
+          <Box mt={4} className="row">
             <CompletionStatus />
             <AreaPopper />
           </Box>
         )}
-      </Box>
-
-      <Box
-        display={"flex"}
-        alignItems={"center"}
-        justifyContent={"space-between"}
-      >
-        <Typography>You're on {tabValue.toUpperCase()} mode!</Typography>
-        <Typography
-          onClick={() => setMoreOptions(!moreOptions)}
-          display={"flex"}
-          alignItems={"center"}
-          gap={1}
-          color={"blue"}
-          sx={{ cursor: "pointer" }}
-        >
-          {moreOptions ? "Show less options" : "Show more options"}
-          {moreOptions ? <ArrowUpwardOutlined /> : <ArrowDownwardOutlined />}
-        </Typography>
+        <Box className="form-footer">
+          <Typography>You're on {tabValue.toUpperCase()} mode!</Typography>
+          <Typography
+            className="link more-options-button"
+            onClick={() => setMoreOptions(!moreOptions)}
+          >
+            {moreOptions ? "Show less options" : "Show more options"}
+            {moreOptions ? <ArrowUpwardOutlined /> : <ArrowDownwardOutlined />}
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );
@@ -274,7 +265,11 @@ const AreaPopper = () => {
         onClick={handleOpenAreaPopper}
         className="area-popup-toggler toggler"
       >
-        <p>Area</p>
+        <p>
+          {area.min || area.max
+            ? `${area.min} sqft min to ${area.max} sqft max`
+            : "Area"}
+        </p>
         <ArrowDropDown />
       </Box>
 
