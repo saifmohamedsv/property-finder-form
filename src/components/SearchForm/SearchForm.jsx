@@ -43,40 +43,41 @@ const SearchForm = () => {
   };
 
   return (
-    <Box className="search-form">
+    <Box className="searchform">
       <TabBar value={tabValue} onChange={handleTabValueChange} />
 
-      <Box className="filter-container">
-        <Box className="row">
-          <SearchTextField />
+      <Box className="row">
+        <SearchTextField placeholder="City, community or building" />
 
-          <PropertyTypeSelect />
+        <PropertyTypeSelect />
 
-          <BedNBathPopper />
+        <BedNBathPopper />
 
-          <PricePopper />
+        <PricePopper />
 
-          <Button className="search-button">
-            <SearchOutlined sx={{ color: "#fff" }} />
-          </Button>
+        <Button className="searchform__submit">
+          <SearchOutlined sx={{ color: "#fff" }} />
+        </Button>
+      </Box>
+
+      {moreOptions && (
+        <Box mt={2} className="row">
+          <CompletionStatus />
+          <AreaPopper />
+          {/* for the implementation of this keyword picker we should use 'chip multi select' based on autocomplete input */}
+          <SearchTextField placeholder="Keywords: e.g. beach, chiller" />
         </Box>
+      )}
 
-        {moreOptions && (
-          <Box mt={4} className="row">
-            <CompletionStatus />
-            <AreaPopper />
-          </Box>
-        )}
-        <Box className="form-footer">
-          <Typography>You're on {tabValue.toUpperCase()} mode!</Typography>
-          <Typography
-            className="link more-options-button"
-            onClick={() => setMoreOptions(!moreOptions)}
-          >
-            {moreOptions ? "Show less options" : "Show more options"}
-            {moreOptions ? <ArrowUpwardOutlined /> : <ArrowDownwardOutlined />}
-          </Typography>
-        </Box>
+      <Box className="form-footer">
+        <Typography>You're on {tabValue.toUpperCase()} mode!</Typography>
+        <Typography
+          className="link more-options-button"
+          onClick={() => setMoreOptions(!moreOptions)}
+        >
+          {moreOptions ? "Show less options" : "Show more options"}
+          {moreOptions ? <ArrowUpwardOutlined /> : <ArrowDownwardOutlined />}
+        </Typography>
       </Box>
     </Box>
   );
@@ -93,7 +94,7 @@ const TabBar = ({ value, onChange }) => {
   );
 };
 
-const SearchTextField = () => {
+const SearchTextField = ({ placeholder }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearchTermChange = ({ target: { value: newValue } }) => {
@@ -107,7 +108,7 @@ const SearchTextField = () => {
       value={searchTerm}
       onChange={handleSearchTermChange}
       className="search-input"
-      placeholder="City, community or building"
+      placeholder={placeholder}
       InputProps={{
         type: "search",
         startAdornment: (

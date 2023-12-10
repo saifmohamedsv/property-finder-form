@@ -1,6 +1,6 @@
 @import "../variables.scss";
 
-.search-form {
+.searchform {
   max-width: 1280px;
   padding: $lg;
   border-radius: $sm;
@@ -31,35 +31,33 @@
     }
   }
 
-  .filter-container {
-    .search-input {
-      flex: 1;
-    }
+  .search-input {
+    flex: 1;
+  }
 
-    .select.MuiSelect-select {
-      min-width: 200px;
-    }
+  .select.MuiSelect-select {
+    min-width: 200px;
+  }
 
-    .select-placeholder {
-      color: #aaaaaa;
-    }
+  .select-placeholder {
+    color: #aaaaaa;
+  }
 
-    .search-button {
-      background-color: $primary-color;
-    }
+  .searchform__submit {
+    background-color: $primary-color;
+  }
 
-    .more-options-button {
-      display: flex;
-      align-items: center;
-      gap: $sm;
-    }
+  .more-options-button {
+    display: flex;
+    align-items: center;
+    gap: $sm;
+  }
 
-    .form-footer {
-      margin-top: $md;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+  .form-footer {
+    margin-top: $md;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 
